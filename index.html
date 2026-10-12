@@ -1293,6 +1293,31 @@ header .shine { border-radius: 8px; border: 0; margin-left: .4rem; padding: .55r
   color: #fff;
   text-shadow: 0 1px 1px rgba(0, 0, 0, .15);
 }
+/* phrase « Le tarif dépend… » : texte posé sur le fond sombre, même police que l'accroche, traits fins de chaque côté */
+.note-tarif {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  margin: -1.5rem 0;  /* plus proche des encadrés autour */
+  color: #fff;
+  font-family: "Rajdhani", system-ui, sans-serif;
+  font-size: clamp(1.2rem, 2.6vw, 1.6rem);
+  font-weight: 700;
+  letter-spacing: .02em;
+  line-height: 1.3;
+  text-align: center;
+  text-shadow: 0 0 3px #000, 0 2px 6px rgba(0, 0, 0, .95), 0 0 18px rgba(0, 0, 0, .9);
+  position: relative;
+  z-index: 2;
+}
+.note-tarif::before, .note-tarif::after {
+  content: "";
+  flex: 1 1 2rem;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .6));
+}
+.note-tarif::after { background: linear-gradient(90deg, rgba(255, 255, 255, .6), transparent); }
+
 /* plus d'espace entre « Gratuit · 15 min » et le titre « Réserver un appel » */
 #appel .label { margin-bottom: .7rem; }
 /* bouton « Être rappelé » : dégradé vert kiwi, différent du bouton doré du menu et de la pastille */
@@ -1380,7 +1405,6 @@ header .shine { border-radius: 8px; border: 0; margin-left: .4rem; padding: .55r
         <li>Une retouche simple offerte</li>
       </ul>
       <dl class="f-chiffres">
-        <div><dt>À partir de</dt><dd>35 €</dd></div>
         <div><dt>Livraison</dt><dd>dès 24 h</dd></div>
       </dl>
     </div>
@@ -1403,7 +1427,6 @@ header .shine { border-radius: 8px; border: 0; margin-left: .4rem; padding: .55r
         <li>De 3 à 12 shorts montés et livrés</li>
       </ul>
       <dl class="f-chiffres">
-        <div><dt>À partir de</dt><dd>200 €</dd></div>
         <div><dt>Livraison</dt><dd>3 à 5 jours</dd></div>
       </dl>
     </div>
@@ -1431,6 +1454,9 @@ header .shine { border-radius: 8px; border: 0; margin-left: .4rem; padding: .55r
     </div>
   </section>
 
+  <!-- phrase sur le tarif, juste avant les formules -->
+  <p class="note-tarif wrap">Le tarif dépend du nombre de vidéos et de la charge de travail</p>
+
   <!-- ABONNEMENT -->
   <section class="offer wrap" id="abonnement">
     <div class="offer-head">
@@ -1442,12 +1468,10 @@ header .shine { border-radius: 8px; border: 0; margin-left: .4rem; padding: .55r
       <article class="plan">
         <div class="plan-top"><span class="fruit" aria-hidden="true">🍹</span><h3>Cocktail 2 Fruits</h3></div>
         <p><strong>10 shorts / mois</strong>, jusqu’à 1 minute. Conçu pour retenir l’attention de votre audience.</p>
-        <div class="price">650 € <small>/ mois</small></div>
       </article>
       <article class="plan">
         <div class="plan-top"><span class="fruit" aria-hidden="true">🥗</span><h3>Salade 2 Fruits</h3></div>
         <p><strong>20 shorts / mois</strong>, jusqu’à 1 minute. Conçu pour retenir l’attention de votre audience.</p>
-        <div class="price">1300 € <small>/ mois</small></div>
       </article>
     </div>
     <div class="devis"><span>Offre personnalisée selon vos besoins</span><a class="btn alt" href="#devis" data-choix="Abonnement">Personnaliser mon offre</a></div>
@@ -1464,12 +1488,10 @@ header .shine { border-radius: 8px; border: 0; margin-left: .4rem; padding: .55r
         <div class="plan-top"><span class="fruit" aria-hidden="true">🍓</span><h3>Fraise <span class="sub">Clipping</span></h3></div>
         <p>Shorts avec montage basique.</p>
         <span class="chip">Livré en 24h</span>
-        <div class="price">35 €</div>
       </article>
       <article class="plan">
         <div class="plan-top"><span class="fruit" aria-hidden="true">🍌</span><h3>Banane <span class="sub">Short Standard</span></h3></div>
         <p>Short dynamique avec sous-titres, zooms et effets essentiels.</p>
-        <div class="price">50 €</div>
       </article>
     </div>
     <div class="devis"><span>Offre personnalisée selon vos besoins</span><a class="btn alt" href="#devis" data-choix="Service">Personnaliser mon offre</a></div>
@@ -1486,18 +1508,15 @@ header .shine { border-radius: 8px; border: 0; margin-left: .4rem; padding: .55r
         <div class="plan-top"><span class="fruit" aria-hidden="true">🍒</span><h3>Cerise</h3></div>
         <p>Analyse d’une vidéo de <strong>1h ou moins</strong> + création de <strong>3 shorts</strong></p>
         <span class="chip">Livré en 3 jours max</span>
-        <div class="price">200 €</div>
       </article>
       <article class="plan">
         <div class="plan-top"><span class="fruit" aria-hidden="true">🍇</span><h3>Raisin</h3></div>
         <p>Analyse d’une vidéo de <strong>2h ou moins</strong> + création de <strong>6 shorts</strong></p>
         <span class="chip">Livré en 5 jours max</span>
-        <div class="price">400 €</div>
       </article>
       <article class="plan">
         <div class="plan-top"><span class="fruit" aria-hidden="true">🍍</span><h3>Ananas</h3></div>
         <p>Analyse d’une vidéo de <strong>4h ou moins</strong> + création de <strong>12 shorts</strong></p>
-        <div class="price">800 €</div>
       </article>
     </div>
     <div class="devis"><span>Offre personnalisée selon vos besoins</span><a class="btn alt" href="#devis" data-choix="Optimisation">Personnaliser mon offre</a></div>
@@ -1791,17 +1810,18 @@ header .shine { border-radius: 8px; border: 0; margin-left: .4rem; padding: .55r
     const nom = carte.querySelector("h3").childNodes[0].textContent.trim();
     const code = CODE_FORMULE[nom];
     if (!code) return;
-    const prix = carte.querySelector(".price").textContent.trim();
     carte.dataset.plan = code;
     carte.tabIndex = 0;
     carte.setAttribute("role", "link");
-    carte.setAttribute("aria-label", "Commander la formule " + nom + ", " + prix);
-    const commander = () => ouvrirAchat({
-      code, nom, prix,
-      fruit: carte.querySelector(".fruit").textContent,
-      desc: carte.querySelector("p").textContent.trim(),
-      section: carte.closest(".offer").id
-    });
+    carte.setAttribute("aria-label", "Réserver un appel pour la formule " + nom);
+    // un clic sur une formule emmène au formulaire « Réserver un appel », avec la formule déjà indiquée
+    const commander = () => {
+      afficher("accueil");
+      const sujet = document.getElementById("ap-sujet");
+      if (!sujet.value.trim()) sujet.value = "Je suis intéressé(e) par la formule " + nom + ".";
+      document.getElementById("appel").scrollIntoView({ block: "start", behavior: "instant" });
+      document.getElementById("ap-nom").focus({ preventScroll: true });
+    };
     carte.addEventListener("click", commander);
     carte.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); commander(); } });
   });
